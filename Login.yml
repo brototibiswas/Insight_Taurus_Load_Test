@@ -1,0 +1,37 @@
+execution:
+  - concurrency: 25
+    ramp-up: 5s
+    hold-for: 10s
+    scenario: Login-to-Diligence
+
+scenarios:
+  Login-to-Diligence:
+    requests:
+      - url: https://diligenceqa.exiger.com/Auth/Login  # url to hit
+        method: POST  # request method (GET, POST, PUT, DELETE)
+        label: diligence homepage  # sampler label
+        body: # generate query string based on parameters and request type
+          UserName: tdattacm@exiger.com
+          Password: Exiger@12345
+        headers:
+          Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+          Accept-Encoding: gzip, deflate, br
+          Accept-Language: en-US,en;q=0.9
+          Content-Type: application/x-www-form-urlencoded
+          Host: diligenceqa.exiger.com
+          Origin: https://diligenceqa.exiger.com
+          Referer: https://diligenceqa.exiger.com/Auth/Login
+#          sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+          sec-ch-ua-mobile: ?0
+          Sec-Fetch-Dest: document
+          Sec-Fetch-Mode: navigate
+          Sec-Fetch-Site: same-origin
+          Sec-Fetch-User: ?1
+          Upgrade-Insecure-Requests: 1
+          User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36
+
+settings:
+  artifacts-dir: output
+
+reporting:
+  - module: final-stats
