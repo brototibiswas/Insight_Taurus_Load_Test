@@ -1,0 +1,15 @@
+execution:
+- concurrency: 100
+  ramp-up: 25s
+  hold-for: 1m
+  scenario:
+    script: scripts/Login-To-diligence.jmx
+
+- concurrency: 100
+  ramp-up: 25s
+  hold-for: 1m
+  scenario:
+    script: scripts/Login-To-insight.jmx
+
+reporting:
+  - module: final-stats
